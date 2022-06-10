@@ -13,7 +13,8 @@ namespace subtext_finder_api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetIndexesOfMatchedSubtext(string text, string subtext) {
-            if (text == null || subtext == null) {
+            if (string.IsNullOrWhiteSpace(text) || string.IsNullOrWhiteSpace(subtext))
+            {
                 return BadRequest();
             }
 

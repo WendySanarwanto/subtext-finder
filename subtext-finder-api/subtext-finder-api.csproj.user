@@ -2,6 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>Docker</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>D:\exercises\dotnet\subtext-finder\subtext-finder-api\Properties\PublishProfiles\subtext-finder-apidev001 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\exercises\aspnetcore\subtext-finder\subtext-finder-api\Properties\PublishProfiles\subtext-finder-apidev001 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

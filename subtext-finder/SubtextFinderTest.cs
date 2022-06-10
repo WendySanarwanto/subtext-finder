@@ -47,5 +47,49 @@ namespace subtext_finder
             IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
+
+        [TestMethod]
+        public void FindAnumberInMixedNumericAndNonAlphanumbericStringTest()
+        {
+            string text = "124523786^&$%&%#987230123";
+            string subtext = "1";
+            int[] expected = new int[] { 0, 22 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
+        [TestMethod]
+        public void FindDotOnDotsSpacesTest()
+        {
+            string text = ". . . ";
+            string subtext = ".";
+            int[] expected = new int[] { 0, 2, 4 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
+        [TestMethod]
+        public void FindDoubleQuotesTest()
+        {
+            string text = @"ignore""eeyore""bored";
+            string subtext = @"e""";
+            int[] expected = new int[] { 5, 12 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
+        [TestMethod]
+        public void FindSlashDotsTest() {
+            string text = @"//.\\.//.\\";
+            string subtext = @"/.";
+            int[] expected = new int[] { 1, 7 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
     }
 }
