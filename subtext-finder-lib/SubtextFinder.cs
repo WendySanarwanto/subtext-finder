@@ -5,7 +5,7 @@ namespace subtext_finder_lib
     public class SubtextFinder
     {
         public static IList<int> GetIndexesOfMatchedSubtext(string text, string subtext) {
-            Regex regex = new Regex(subtext);
+            Regex regex = new Regex(subtext, RegexOptions.IgnoreCase );
             List<int> result = new List<int>();
 
             var matches = regex.Matches(text);

@@ -27,5 +27,25 @@ namespace subtext_finder
             IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
+
+        [TestMethod]
+        public void FindPartialCharsWithinASentenceIgnoreCasingTest() {
+            string text = "Beauty and beast";
+            string subtext = "Ea";
+            int[] expected = new int[] { 1, 12 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
+        [TestMethod]
+        public void FindSpacesWithinASentenceTest() {
+            string text = "Beauty and beast";
+            string subtext = " ";
+            int[] expected = new int[] { 6, 10 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
     }
 }
