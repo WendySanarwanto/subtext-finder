@@ -36,5 +36,5 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: test
-    projects: 'subtext-finder-test/*.csproj'
+    projects: 'subtext-finder\subtext-finder-test.csproj'
     arguments: '--configuration $(buildConfiguration)'
