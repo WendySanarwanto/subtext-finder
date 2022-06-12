@@ -18,6 +18,11 @@ namespace subtext_finder_lib
                 }
             }
 
+            // handle backslash
+            if (subtext.Any(e => e == '\\')) {
+                subtext = subtext.Replace("\\", "\\\\");
+            }
+
             Regex regex = new Regex(subtext, RegexOptions.IgnoreCase );
             List<int> result = new List<int>();
 

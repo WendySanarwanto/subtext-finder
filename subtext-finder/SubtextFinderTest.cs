@@ -91,5 +91,15 @@ namespace subtext_finder
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
+        [TestMethod]
+        public void FindDotSlashTest() { 
+            string text = @"//.\\.//.\\";
+            string subtext = @".\";
+            int[] expected = new int[] { 2, 8 };
+
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
     }
 }
