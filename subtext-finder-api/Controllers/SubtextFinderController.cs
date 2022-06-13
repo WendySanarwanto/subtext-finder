@@ -18,7 +18,7 @@ namespace subtext_finder_api.Controllers
                 return BadRequest();
             }
 
-            return Ok(SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext));
+            return Ok(SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext));
         }
     }
 }

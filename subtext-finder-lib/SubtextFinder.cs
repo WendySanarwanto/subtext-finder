@@ -9,6 +9,26 @@ namespace subtext_finder_lib
             return input.Any(char.IsLetterOrDigit);
         }
 
+        public static IList<int> GetIndexesOfMatchedSubtextEx(string text, string subtext)
+        {
+            int textLength = text.Length;
+            List<char> textChars = text.ToCharArray().ToList();
+            List<int> indexes = new List<int>();
+
+            for (int i = 0; i < textLength; i++)
+            {
+                string currentText = new string(textChars.ToArray());
+                int currentIndex = currentText.IndexOf(subtext, StringComparison.CurrentCultureIgnoreCase);
+                if (currentIndex == 0) {
+                    currentIndex += i;
+                    indexes.Add(currentIndex);
+                }
+                textChars.RemoveAt(0);
+            }
+
+            return indexes;
+        }
+
         public static IList<int> GetIndexesOfMatchedSubtext(string text, string subtext) {
             if (!isAlphanumeric(subtext)) {
                 // handle dot

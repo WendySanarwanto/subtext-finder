@@ -12,7 +12,7 @@ namespace subtext_finder
             string subtext = "Wendy";
             int[] expected = new int[] { 6, 43 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
 
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
 
@@ -24,7 +24,7 @@ namespace subtext_finder
             string subtext = "Wendy";
             int[] expected = new int[] { 5, 36 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -34,7 +34,7 @@ namespace subtext_finder
             string subtext = "Ea";
             int[] expected = new int[] { 1, 12 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -44,7 +44,7 @@ namespace subtext_finder
             string subtext = " ";
             int[] expected = new int[] { 6, 10 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -55,7 +55,7 @@ namespace subtext_finder
             string subtext = "1";
             int[] expected = new int[] { 0, 22 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -66,7 +66,7 @@ namespace subtext_finder
             string subtext = ".";
             int[] expected = new int[] { 0, 2, 4 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -77,7 +77,7 @@ namespace subtext_finder
             string subtext = @"e""";
             int[] expected = new int[] { 5, 12 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -87,7 +87,7 @@ namespace subtext_finder
             string subtext = @"/.";
             int[] expected = new int[] { 1, 7 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -97,7 +97,7 @@ namespace subtext_finder
             string subtext = @".\";
             int[] expected = new int[] { 2, 8 };
 
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
@@ -106,9 +106,17 @@ namespace subtext_finder
             string text = @"How are you today ?"; 
             string subtext = @"?";
             int[] expected = new int[] { 18 };
-            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
+        [TestMethod]
+        public void FindAwaSubtextTest() {
+            string text = @"awawawawawa";
+            string subtext = @"awa";
+            int[] expected = new int[] { 0, 2, 4, 6, 8 };
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtextEx(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
     }
 }
