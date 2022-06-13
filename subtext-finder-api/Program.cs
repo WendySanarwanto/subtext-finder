@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Enable CORS
 builder.Services.AddCors(options => {
     options.AddDefaultPolicy(policy => {
-        policy.WithOrigins("http://localhost:3000", "https://subtext-finder-reactjs.herokuapp.com", "http://subtext-finder-reactjs.herokuapp.com/");
+        policy.WithOrigins("http://localhost:3000", "https://subtext-finder-reactjs.herokuapp.com", "http://subtext-finder-reactjs.herokuapp.com");
     });
 });
 
