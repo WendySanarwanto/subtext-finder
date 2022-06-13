@@ -101,5 +101,14 @@ namespace subtext_finder
             CollectionAssert.AreEquivalent(actual.ToArray(), expected);
         }
 
+        [TestMethod]
+        public void FindQuestionSubtextTest() {
+            string text = @"How are you today ?"; 
+            string subtext = @"?";
+            int[] expected = new int[] { 18 };
+            IList<int> actual = SubtextFinder.GetIndexesOfMatchedSubtext(text, subtext);
+            CollectionAssert.AreEquivalent(actual.ToArray(), expected);
+        }
+
     }
 }

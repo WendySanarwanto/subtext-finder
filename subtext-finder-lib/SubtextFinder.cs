@@ -16,6 +16,9 @@ namespace subtext_finder_lib
                 {
                     subtext = subtext.Replace(".", "[.]+");
                 }
+                if (subtext.Any(e => e == '?')) {
+                    subtext = subtext.Replace("?", "[?]+");
+                }
             }
 
             // handle backslash
